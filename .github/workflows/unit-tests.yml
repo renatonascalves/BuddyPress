@@ -30,9 +30,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Check Gitignored files
-        run: if [[ ! -z $(git ls-files -i --exclude-standard) ]]; then exit 1; fi
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
