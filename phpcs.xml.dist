@@ -14,6 +14,9 @@
 	<!-- Check against minimum WP version. -->
 	<config name="minimum_supported_wp_version" value="4.9"/>
 
+	<!-- Don't fail CI build on warnings. -->
+	<config name="ignore_warnings_on_exit" value="1"/>
+
 	<!--
 	Pass some flags to PHPCS:
 	p flag: Show progress of the run.
@@ -30,13 +33,19 @@
 	<!-- Check 20 files in parallel. -->
 	<arg name="parallel" value="20"/>
 
-	<!-- Start with severity to 6. -->
+	<!-- Set severity to 1 to see everything that isn't effectively turned off. -->
 	<arg name="severity" value="6" />
+
+	<!-- PHP files only, for now. -->
+	<arg name="extensions" value="php" />
 
 	<!-- What to exclude -->
 	<exclude-pattern>*/**/tests/</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<!-- What to exclude from the plugin -->
+	<exclude-pattern>*/**/**/deprecated/*</exclude-pattern>
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
