@@ -26,3 +26,6 @@ build
 
 # The custom Docker config file.
 .wp-env.override.json
+
+# Cache files
+.phpcs/*.json
