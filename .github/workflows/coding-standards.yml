@@ -1,6 +1,8 @@
 name: Coding Standards
 
-on: pull_request
+on:
+  push:
+  branches: [ master ]
 
 jobs:
   phpcs:
